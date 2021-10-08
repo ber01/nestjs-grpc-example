@@ -20,7 +20,7 @@ cd packages/user
 ```
 
 ```
-copy .env.example .env
+cp .env.example .env
 ```
 
 ```bash
