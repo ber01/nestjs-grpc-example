@@ -30,7 +30,7 @@ yarn start
 ### 조회 성공 - 1
 
 ```bash
-yarn grpcc -i -p ../api/lib/user/user.proto -a localhost:3000 --eval 'client.getUserByEmail({ "email": "ksyj8256@gmail.com" }, printReply)'
+yarn grpcc -i -p ../common/lib/proto/user.proto -a localhost:3000 --eval 'client.getUserByEmail({ "email": "ksyj8256@gmail.com" }, printReply)'
 ```
 
 ```json
@@ -46,7 +46,7 @@ yarn grpcc -i -p ../api/lib/user/user.proto -a localhost:3000 --eval 'client.get
 ### 조회 성공 - 2
 
 ```bash
-yarn grpcc -i -p ../api/lib/user/user.proto -a localhost:3000 --eval 'client.getUserByEmail({ "email": "hkd1234@gmail.com" }, printReply)'
+yarn grpcc -i -p ../common/lib/proto/user.proto -a localhost:3000 --eval 'client.getUserByEmail({ "email": "hkd1234@gmail.com" }, printReply)'
 ```
 
 ```json
