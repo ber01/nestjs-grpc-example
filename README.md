@@ -7,12 +7,6 @@
 - yarn
 - node
 
-## 환경변수 설정
-
-```
-copy .env.example .env
-```
-
 ## 패키지 설치
 
 ```
@@ -23,6 +17,10 @@ yarn bootstrap
 
 ```bash
 cd packages/user
+```
+
+```
+copy .env.example .env
 ```
 
 ```bash
