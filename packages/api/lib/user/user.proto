@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package user;
+
+/*
+ * Model
+ */
+
+message User {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+/*
+ * Query
+ */
+
+message GetUserByEmailQuery {
+  string email = 1;
+}
+
+/*
+ * Result
+ */
+
+message GetUserResult {
+  optional User user = 1;
+}
+
+// Service
+
+service UserService {
+  rpc GetUserByEmail(GetUserByEmailQuery) returns (GetUserResult);
+}
+

@@ -1,0 +1,11 @@
+{
+  "name": "@example/api",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "main": "lib/",
+  "scripts": {
+    "ts-proto-gen:user": "protoc --plugin=../../node_modules/.bin/protoc-gen-ts_proto --ts_proto_opt=lowerCaseServiceMethods=true,nestJs=true,esModuleInterop=true --ts_proto_out=. ./lib/user/user.proto",
+    "ts-proto-gen:article": "protoc --plugin=../../node_modules/.bin/protoc-gen-ts_proto --ts_proto_opt=lowerCaseServiceMethods=true,nestJs=true,esModuleInterop=true --ts_proto_out=. ./lib/article/article.proto"
+  }
+}

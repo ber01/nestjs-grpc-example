@@ -1,0 +1,13 @@
+{
+  "name": "@example/user",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rimraf \"lib/**/*.js\" \"lib/**/*.d.ts\"",
+    "build": "tsc --build --force",
+    "start": "ts-node-dev --prefer-ts --clear src/main.ts",
+    "start:dev": "ts-node-dev --prefer-ts --clear --respawn src/main.ts",
+    "test": "jest --watch --passWithNoTests"
+  }
+}
