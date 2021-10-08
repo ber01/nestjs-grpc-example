@@ -62,7 +62,7 @@ yarn grpcc -i -p ../common/lib/proto/user.proto -a localhost:3000 --eval 'client
 ### 조회 실패
 
 ```bash
-yarn grpcc -i -p ../api/lib/user/user.proto -a localhost:3000 --eval 'client.getUserByEmail({ "email": "unknown" }, printReply)'
+yarn grpcc -i -p ../common/lib/proto/user.proto -a localhost:3000 --eval 'client.getUserByEmail({ "email": "unknown" }, printReply)'
 ```
 
 ```json
