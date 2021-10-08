@@ -1,4 +1,4 @@
-import { protoPath } from '@example/api/lib/user'
+import { userProtoPath } from '@example/common/lib/generated'
 import { Logger } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { NestFactory } from '@nestjs/core'
@@ -20,7 +20,7 @@ const grpcClientOptions: ClientOptions = {
   options: {
     url: URL + ':' + PORT,
     package: 'user',
-    protoPath,
+    protoPath: userProtoPath,
   },
 }
 
