@@ -1,4 +1,4 @@
-import { userProtoPath } from '@example/common/lib/generated'
+import { userProtoPath } from '@example/common'
 import { Logger } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { NestFactory } from '@nestjs/core'
