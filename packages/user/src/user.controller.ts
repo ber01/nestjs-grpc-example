@@ -4,7 +4,7 @@ import {
   User,
   UserServiceController,
   UserServiceControllerMethods,
-} from '@example/common/lib/generated/user'
+} from '@example/common'
 import { Controller } from '@nestjs/common'
 
 @Controller()
