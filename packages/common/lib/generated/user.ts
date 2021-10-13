@@ -4,8 +4,6 @@ import Long from 'long'
 import _m0 from 'protobufjs/minimal'
 import { Observable } from 'rxjs'
 
-export const protobufPackage = 'user'
-
 export interface User {
   id: string
   name: string

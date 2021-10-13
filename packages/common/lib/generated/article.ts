@@ -3,8 +3,6 @@ import Long from 'long'
 import _m0 from 'protobufjs/minimal'
 import { User } from './user'
 
-export const protobufPackage = 'article'
-
 export interface Article {
   id: string
   name: string
