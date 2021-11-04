@@ -7,16 +7,17 @@ import {
   MicroserviceOptions,
   Transport,
 } from '@nestjs/microservices'
+import uuid4 from 'uuid4'
 import { AppModule } from './app.module'
 
 export const users: User[] = [
   {
-    id: '5c47afc0-a8ee-482c-a274-97f2a2742cbc',
+    id: uuid4(),
     name: 'minkh',
     email: 'ksyj8256@gmail.com',
   },
   {
-    id: 'f1be9dac-47aa-4594-9de6-a0d070decb1c',
+    id: uuid4(),
     name: 'hkd',
     email: 'hkd1234@gmail.com',
   },
