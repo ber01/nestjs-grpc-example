@@ -2,9 +2,7 @@ syntax = "proto3";
 
 package user;
 
-/*
- * Model
- */
+// Model
 
 message User {
   string id = 1;
@@ -12,25 +10,35 @@ message User {
   string email = 3;
 }
 
-/*
- * Query
- */
-
+// Query
+ 
 message GetUserByEmailQuery {
   string email = 1;
-}
+} 
 
-/*
- * Result
- */
+// Result
 
 message GetUserResult {
   optional User user = 1;
+}
+
+// Command
+
+message CreateUserCommand {
+  string name = 1;
+  string email = 2;
+}
+
+// Event
+
+message UserCreatedEvent {
+  string id = 1;
 }
 
 // Service
 
 service UserService {
   rpc GetUserByEmail(GetUserByEmailQuery) returns (GetUserResult);
+  rpc CreateUser(CreateUserCommand) returns (UserCreatedEvent);
 }
 

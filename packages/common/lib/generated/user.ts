@@ -18,21 +18,36 @@ export interface GetUserResult {
   user?: User | undefined
 }
 
+export interface CreateUserCommand {
+  name: string
+  email: string
+}
+
+export interface UserCreatedEvent {
+  id: string
+}
+
 export const USER_PACKAGE_NAME = 'user'
 
 export interface UserServiceClient {
   getUserByEmail(request: GetUserByEmailQuery): Observable<GetUserResult>
+
+  createUser(request: CreateUserCommand): Observable<UserCreatedEvent>
 }
 
 export interface UserServiceController {
   getUserByEmail(
     request: GetUserByEmailQuery,
   ): Promise<GetUserResult> | Observable<GetUserResult> | GetUserResult
+
+  createUser(
+    request: CreateUserCommand,
+  ): Promise<UserCreatedEvent> | Observable<UserCreatedEvent> | UserCreatedEvent
 }
 
 export function UserServiceControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods: string[] = ['getUserByEmail']
+    const grpcMethods: string[] = ['getUserByEmail', 'createUser']
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(
         constructor.prototype,
