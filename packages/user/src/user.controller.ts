@@ -2,6 +2,7 @@ import {
   CreateUserCommand,
   GetUserByEmailQuery,
   GetUserResult,
+  GetUsersResult,
   UserCreatedEvent,
   UserServiceController,
   UserServiceControllerMethods,
@@ -20,5 +21,9 @@ export class UserController implements UserServiceController {
 
   public createUser(request: CreateUserCommand): UserCreatedEvent {
     return this.userService.createUser(request)
+  }
+
+  public getUsers(): GetUsersResult {
+    return this.userService.getUsers()
   }
 }

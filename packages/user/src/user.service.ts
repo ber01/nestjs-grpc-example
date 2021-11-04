@@ -2,6 +2,7 @@ import {
   CreateUserCommand,
   GetUserByEmailQuery,
   GetUserResult,
+  GetUsersResult,
   User,
   UserCreatedEvent,
 } from '@example/common/lib'
@@ -24,5 +25,9 @@ export class UserService {
     }
     users.push(user)
     return { id: user.id }
+  }
+
+  public getUsers(): GetUsersResult {
+    return { users }
   }
 }
