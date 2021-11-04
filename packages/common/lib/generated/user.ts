@@ -14,8 +14,14 @@ export interface GetUserByEmailQuery {
   email: string
 }
 
+export interface GetUsersQuery {}
+
 export interface GetUserResult {
   user?: User | undefined
+}
+
+export interface GetUsersResult {
+  users: User[]
 }
 
 export interface CreateUserCommand {
@@ -33,6 +39,8 @@ export interface UserServiceClient {
   getUserByEmail(request: GetUserByEmailQuery): Observable<GetUserResult>
 
   createUser(request: CreateUserCommand): Observable<UserCreatedEvent>
+
+  getUsers(request: GetUsersQuery): Observable<GetUsersResult>
 }
 
 export interface UserServiceController {
@@ -43,11 +51,15 @@ export interface UserServiceController {
   createUser(
     request: CreateUserCommand,
   ): Promise<UserCreatedEvent> | Observable<UserCreatedEvent> | UserCreatedEvent
+
+  getUsers(
+    request: GetUsersQuery,
+  ): Promise<GetUsersResult> | Observable<GetUsersResult> | GetUsersResult
 }
 
 export function UserServiceControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods: string[] = ['getUserByEmail', 'createUser']
+    const grpcMethods: string[] = ['getUserByEmail', 'createUser', 'getUsers']
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(
         constructor.prototype,

@@ -16,10 +16,18 @@ message GetUserByEmailQuery {
   string email = 1;
 } 
 
+message GetUsersQuery {
+
+}
+
 // Result
 
 message GetUserResult {
   optional User user = 1;
+}
+
+message GetUsersResult {
+  repeated User users = 1;
 }
 
 // Command
@@ -40,5 +48,6 @@ message UserCreatedEvent {
 service UserService {
   rpc GetUserByEmail(GetUserByEmailQuery) returns (GetUserResult);
   rpc CreateUser(CreateUserCommand) returns (UserCreatedEvent);
+  rpc GetUsers(GetUsersQuery) returns (GetUsersResult);
 }
 
