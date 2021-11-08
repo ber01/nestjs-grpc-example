@@ -7,7 +7,8 @@ import {
   UserServiceController,
   UserServiceControllerMethods,
 } from '@example/common'
-import { Controller } from '@nestjs/common'
+import { Body, Controller, UsePipes } from '@nestjs/common'
+import { IsUserByEmailPipe } from './pipes'
 import { UserService } from './user.service'
 
 @Controller()
@@ -19,7 +20,8 @@ export class UserController implements UserServiceController {
     return this.userService.getUserByEmail(request)
   }
 
-  public createUser(request: CreateUserCommand): UserCreatedEvent {
+  @UsePipes(IsUserByEmailPipe)
+  public createUser(@Body() request: CreateUserCommand): UserCreatedEvent {
     return this.userService.createUser(request)
   }
 
