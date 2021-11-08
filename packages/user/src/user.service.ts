@@ -3,31 +3,28 @@ import {
   GetUserByEmailQuery,
   GetUserResult,
   GetUsersResult,
-  User,
   UserCreatedEvent,
 } from '@example/common/lib'
 import { Injectable } from '@nestjs/common'
-import uuid4 from 'uuid4'
-import { users } from './main'
+import { UserRepository } from './users.repository'
 
 @Injectable()
 export class UserService {
+  constructor(private readonly userRepository: UserRepository) {}
+
   public getUserByEmail(request: GetUserByEmailQuery): GetUserResult {
-    const user = users.find(({ email }) => email === request.email)
+    const { email } = request
+    const user = this.userRepository.findByEmail(email)
     return { user }
   }
 
   public createUser(request: CreateUserCommand): UserCreatedEvent {
-    const user: User = {
-      id: uuid4(),
-      email: request.email,
-      name: request.name,
-    }
-    users.push(user)
-    return { id: user.id }
+    const id = this.userRepository.save(request)
+    return { id }
   }
 
   public getUsers(): GetUsersResult {
+    const users = this.userRepository.findAll()
     return { users }
   }
 }
