@@ -27,23 +27,7 @@ cp .env.example .env
 yarn start
 ```
 
-### 조회 성공 - 1
-
-```bash
-yarn grpcc -i -p ../common/lib/proto/user.proto -a localhost:3000 --eval 'client.getUserByEmail({ "email": "ksyj8256@gmail.com" }, printReply)'
-```
-
-```json
-{
-  "user": {
-    "id": "5c47afc0-a8ee-482c-a274-97f2a2742cbc",
-    "name": "minkh",
-    "email": "ksyj8256@gmail.com"
-  }
-}
-```
-
-### 조회 성공 - 2
+### 조회 성공
 
 ```bash
 yarn grpcc -i -p ../common/lib/proto/user.proto -a localhost:3000 --eval 'client.getUserByEmail({ "email": "hkd1234@gmail.com" }, printReply)'
